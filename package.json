@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@deepdish-cloud/config": "0.4.0",
+    "@deepdish-cloud/resolvers": "0.1.0",
+    "@deepdish/ui": "0.6.4",
+    "@deepdish/workbench": "0.2.1",
     "@radix-ui/react-icons": "^1.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

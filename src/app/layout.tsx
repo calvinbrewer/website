@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { Workbench } from "@deepdish/workbench";
 import localFont from "next/font/local";
 import "./globals.css";
-import { cms } from "@deepdish-cloud/config";
+import { Workbench } from "@deepdish/workbench";
+import { configure } from "@deepdish/ui/config";
+import { cloudConfig } from "@deepdish-cloud/config";
+import { init } from "@deepdish-cloud/config/client";
 
-cms({
-	secretKey: process.env.DEEPDISH_SECRET_KEY,
-	projectAlias: process.env.DEEPDISH_PROJECT_ALIAS,
-});
+configure(
+	cloudConfig({
+		secretKey: process.env.DEEPDISH_SECRET_KEY,
+		projectAlias: process.env.DEEPDISH_PROJECT_ALIAS,
+	}),
+);
+
+const showWorkbench = process.env.DEEPDISH_MODE === "draft";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
 	variable: "--font-geist-sans",
 	weight: "100 900",
 });
+
 const geistMono = localFont({
 	src: "./fonts/GeistMonoVF.woff",
 	variable: "--font-geist-mono",
@@ -36,7 +43,7 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				{children}
-				<Workbench />
+				{showWorkbench && <Workbench onInit={init} />}
 			</body>
 		</html>
 	);

@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin } from "lucide-react";
-import { Paragraph } from "@deepdish/ui/typography";
+import { Heading1, Heading2 } from "@deepdish/ui/typography";
 
 export default function Page() {
 	return (
@@ -8,12 +8,17 @@ export default function Page() {
 			<div className="max-w-3xl mx-auto">
 				<header className="text-center mb-12">
 					<h1 className="text-4xl font-bold text-gray-900 mb-2">CJ Brewer</h1>
-					<Paragraph deepdish={{ key: "product-name" }}>Engineer</Paragraph>
+					<Heading1 deepdish={{ key: "product-name" }}>Engineer</Heading1>
 				</header>
 
 				<Card className="mb-8">
 					<CardContent className="pt-6">
-						<h2 className="text-2xl font-semibold mb-4">About Me</h2>
+						<Heading2
+							className="text-2xl font-semibold mb-4"
+							deepdish={{ key: "about-me" }}
+						>
+							About Me
+						</Heading2>
 						<p className="text-gray-700">I do a lot of things.</p>
 					</CardContent>
 				</Card>
